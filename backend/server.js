@@ -13,11 +13,8 @@ app.get('/health', (req,res) => { // health check
     })
 });
 
-app.listen(port,()=>{ //listen is server waitng for incoming requests 
-    console.log (` app listening at http://localhost:${port}`) // this prints out  the port 3000 link to go check 
-}) ;
 
-app.post('/submit', (req, res) =>{ //post used for sening data to server 
+app.post('/submit', (req, res) =>{ //post used for sending data to server 
     const urlFromBody = req.body.targetUrl; // this is where we get our full link 
   
     if(!urlFromBody){ //if link is not there a 400 error will be returned 
@@ -42,4 +39,7 @@ app.get('/:id', (req, res) =>{
     }
 });
 
-
+app.listen(port,()=>{ //listen is server waitng for incoming requests 
+    console.log (` app listening at http://localhost:${port}`) // this prints out  the port 3000 link to go check 
+}) ;
+module.exports =app;
